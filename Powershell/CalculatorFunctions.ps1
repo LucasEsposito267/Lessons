@@ -1,6 +1,6 @@
 ﻿#FUNCIONES CON PARAMETROS
 function Add-Numbers ($Numero1,$numero2){
-    $resultad = $Numero1 + $numero2
+    $resultado = $Numero1 + $numero2
     Write-Host "La suma es: $resultado"
 }
 
