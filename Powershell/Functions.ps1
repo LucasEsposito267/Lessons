@@ -32,3 +32,10 @@ Function Get-ProcessByName ($ProcessName){
     Get-Process -Name $ProcessName
 
 }
+
+#FUNCIONES PARA CREAR ARCHIVOS
+
+function CreateNewFile ($FilePath) {
+New-Item -Path ($FilePath) -ItemType file -Verbose
+
+}
