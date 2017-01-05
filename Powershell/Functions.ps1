@@ -39,3 +39,20 @@ function CreateNewFile ($FilePath) {
 New-Item -Path ($FilePath) -ItemType file -Verbose
 
 }
+
+#FUNCIONES CON IF Y ELSE
+
+cls
+
+function CreateFile ($filepath)
+{
+    If(Test-Path -Path $filepath){
+        Write-Host "El archivo [$filepath] existe. No lo vamos a crear"
+        
+    }
+    Else{
+        Write-Host "El archivo [$filepath] no existe. Creandolo..."
+        New-Item -Path $filepath -ItemType File -Verbose
+    }     
+}
+
