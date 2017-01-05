@@ -25,8 +25,17 @@ function Substract-Numbers (){
 
 }
 
+
+
 function AddAndMultiply ([int]$numero1,[int]$numero2,[int]$numero3){
        $resultado = ($numero1 + $numero2) * $numero3
        Write-Host "El resultado es $resultado"
 
        }
+       
+#FUNCIONES PARA CREAR ARCHIVOS
+
+function CreateNewFile ($FilePath) {
+New-Item -Path ($FilePath) -ItemType file -Verbose
+
+}
