@@ -24,3 +24,9 @@ function Substract-Numbers (){
     write-host "El resultado de la resta es: $resultado"
 
 }
+
+function Add-Numbers ([int]$numero1,[int]$numero2,[int]numero3){
+       $resultado = ($numero1 + $numero2) * $numero3
+       Write-Host "El resultado es $resultado"
+
+       }
