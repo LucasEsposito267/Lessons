@@ -33,3 +33,15 @@ function AddAndMultiply ([int]$numero1,[int]$numero2,[int]$numero3){
 
        }
        
+#FUNCION > o <
+function SearchNumber ([int]$numero1,[int]$numero2)
+
+{
+
+If($numero1 -ge $numero2){
+Write-Host "$numero1 es mayor que $numero2"}
+
+Else{Write-Host "$numero2 es mayor que $numero1"}
+
+}
+       
