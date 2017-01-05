@@ -25,7 +25,7 @@ function Substract-Numbers (){
 
 }
 
-function Add-Numbers ([int]$numero1,[int]$numero2,[int]numero3){
+function AddAndMultiply ([int]$numero1,[int]$numero2,[int]$numero3){
        $resultado = ($numero1 + $numero2) * $numero3
        Write-Host "El resultado es $resultado"
 
