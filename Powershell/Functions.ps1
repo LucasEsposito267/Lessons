@@ -77,3 +77,29 @@ function BackupFiles($filepath){
    Rename-Item -Path $Backupfile.fullname -NewName $NewName
     
 }
+
+#FUNCION PARA MOVER ARCHIVOS
+
+function MoveFiles ($path) {
+
+$AllFiles =  Get-ChildItem -Path $path -Include @("*.txt","*.jpg","*.bat") -Recurse
+
+    foreach ($File in $AllFiles){
+
+        if ($File.Extension -eq ".jpg"){
+            Write-Host "El archivo $($file.name) Es un jpg"
+        Move-Item -path $File.FullName -Destination "C:\Nueva\jpg\" -verbose
+
+        }
+        elseif ($File.Extension -eq ".txt"){
+                Write-Host "El archivo $($file.name) Es un txt"
+        Move-Item -path $File.FullName -Destination "C:\Nueva\txt\" -verbose
+        }
+
+        else {
+            Write-Host "El archivo $($file.name) Es un bat"
+      Move-Item -path $File.FullName -Destination "C:\Nueva\bat\" -verbose
+        }
+    }
+
+}
