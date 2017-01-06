@@ -56,3 +56,24 @@ function CreateFile ($filepath)
     }     
 }
 
+function getformatteddate (){
+    Get-Date -Format yyyyMdHmm
+}
+
+function BackupFiles($filepath){
+    
+   $File = Get-Item $filepath
+   
+   $BackupDirectory = "C:\tools\lucas\Backup"
+       
+   Copy-Item -Path $File.FullName -Destination $BackupDirectory -verbose -Force
+
+   $date = getformatteddate
+
+   $NewName = $file.BaseName + "_" + $date + $File.Extension   
+   
+   $Backupfile = Get-Item (join-path -Path $BackupDirectory -ChildPath $File.Name)
+    
+   Rename-Item -Path $Backupfile.fullname -NewName $NewName
+    
+}
