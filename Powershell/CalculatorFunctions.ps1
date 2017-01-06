@@ -45,3 +45,16 @@ Else{Write-Host "$numero2 es mayor que $numero1"}
 
 }
        
+  function CompareNumber ([int]$numero1,[int]$numero2)
+{
+    If($numero1 -gt $numero2){
+        Write-Host "Numero1 [$numero1] es mayor que Numero2 [$numero2]"
+    }
+    elseif($numero1 -eq $numero2){
+        Write-host "Numero1[$numero1] y Numero2[$numero2] son iguales"
+    }
+
+    Else{
+        Write-Host "Numero2 [$numero2] es mayor que Numero1 [$numero1]"
+    }
+}     
