@@ -32,3 +32,74 @@ Function Get-ProcessByName ($ProcessName){
     Get-Process -Name $ProcessName
 
 }
+
+#FUNCIONES PARA CREAR ARCHIVOS
+
+function CreateNewFile ($FilePath) {
+New-Item -Path ($FilePath) -ItemType file -Verbose
+
+}
+
+#FUNCIONES CON IF Y ELSE
+
+cls
+
+function CreateFile ($filepath)
+{
+    If(Test-Path -Path $filepath){
+        Write-Host "El archivo [$filepath] existe. No lo vamos a crear"
+        
+    }
+    Else{
+        Write-Host "El archivo [$filepath] no existe. Creandolo..."
+        New-Item -Path $filepath -ItemType File -Verbose
+    }     
+}
+
+function getformatteddate (){
+    Get-Date -Format yyyyMdHmm
+}
+
+function BackupFiles($filepath){
+    
+   $File = Get-Item $filepath
+   
+   $BackupDirectory = "C:\tools\lucas\Backup"
+       
+   Copy-Item -Path $File.FullName -Destination $BackupDirectory -verbose -Force
+
+   $date = getformatteddate
+
+   $NewName = $file.BaseName + "_" + $date + $File.Extension   
+   
+   $Backupfile = Get-Item (join-path -Path $BackupDirectory -ChildPath $File.Name)
+    
+   Rename-Item -Path $Backupfile.fullname -NewName $NewName
+    
+}
+
+#FUNCION PARA MOVER ARCHIVOS
+
+function MoveFiles ($path) {
+
+$AllFiles =  Get-ChildItem -Path $path -Include @("*.txt","*.jpg","*.bat") -Recurse
+
+    foreach ($File in $AllFiles){
+
+        if ($File.Extension -eq ".jpg"){
+            Write-Host "El archivo $($file.name) Es un jpg"
+        Move-Item -path $File.FullName -Destination "C:\Nueva\jpg\" -verbose
+
+        }
+        elseif ($File.Extension -eq ".txt"){
+                Write-Host "El archivo $($file.name) Es un txt"
+        Move-Item -path $File.FullName -Destination "C:\Nueva\txt\" -verbose
+        }
+
+        else {
+            Write-Host "El archivo $($file.name) Es un bat"
+      Move-Item -path $File.FullName -Destination "C:\Nueva\bat\" -verbose
+        }
+    }
+
+}
