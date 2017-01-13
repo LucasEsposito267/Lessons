@@ -10,8 +10,16 @@ El cmdlet que vamos a usar para encontrar cmdlets se llama GET-COMMAND
 
 ##Quiero que pongas una linea de codigo que encuentre todos los cmdlets que terminan en "*-item"
 
+Get-Command *-item
+
 ##Encontra todos los cmdlets que hacen algo con PROCESOS (acordate que es todo en ingles)
+
+Get-Command *process
 
 ##Encontra todos los cmdlets que hacen algo con SERVICIOS
 
+Get-Command *service
+
 ##Encontra todos los cmdlets que arrancan con el verbo GET
+
+Get-Command Get*
