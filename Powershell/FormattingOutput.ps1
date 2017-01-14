@@ -16,6 +16,7 @@ get-process -Name Notepad | Format-List
 Get-Process -Name notepad | Format-List -Property * #<-- Ahi le indicas que queres ver todas las propiedades. Vas a ver que son un monton mas
 
 #6 Vos a su vez podrias elegir que propiedades queres ver. Quiero que aca abajo completes este comando para que solo muestre "Name", "ID" y "StartTime"
-Get-Process -Name notepad | Format-List -Property #<-- Intenta poner el cursor despues del parametro "Property" y apreta Ctrl+Espacio (de ahora en mas le vamos a llamar "Intelisense" a esa hotkey/atajo)
+Get-Process -Name notepad | Format-List -Property name, ID, starttime #<-- Intenta poner el cursor despues del parametro "Property" y apreta Ctrl+Espacio (de ahora en mas le vamos a llamar "Intelisense" a esa hotkey/atajo)
 
 #7 Quiero que busques abajo de esta linea pongas una manera de usar Get-Process para traer TODOs los procesos que estan corriendo, pero ordenados por ID de menor a mayor. TIP: en ingles "ordenar" es "sort"
+Get-Process | sort ID | Format-table -Property name, ID
