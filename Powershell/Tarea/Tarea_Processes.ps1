@@ -26,5 +26,5 @@ stop-process -id 5080
 stop-process -name notepad
 
 ##Consegui todos los procesos que estan corriendo en la computadora, elegi las columnas Name, ID, StartTime y manda el resultado ese a un notepad. La keyword para googlear es "Output to a file"
-
+Get-Process | Format-table -Property name, ID, starttime | Out-File C:\Users\Lucas\Desktop\File.txt
 
