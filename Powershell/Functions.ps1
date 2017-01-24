@@ -103,3 +103,30 @@ $AllFiles =  Get-ChildItem -Path $path -Include @("*.txt","*.jpg","*.bat") -Recu
     }
 
 }
+
+#
+
+function MoveFiles ($SourceFolder,$DestinationFolder){
+
+    If(Test-Path -Path $DestinationFolder){
+        
+        Write-Output "La carpeta ya existe"
+        
+        New-Item -Path $destinationFolder -ItemType directory -Verbose
+        
+        Write-Output "La carpeta no existe, creandola..."
+     
+    }
+    else{
+        
+        Write-Output "La carpeta no existe, creandola..."
+
+        New-Item -Path $destinationFolder -ItemType directory -Verbose
+         
+    }
+
+  Remove-Item -path $DestinationFolder\* -Verbose
+
+  Copy-Item -path $sourcefolder\* -destination $DestinationFolder -Verbose
+
+}
