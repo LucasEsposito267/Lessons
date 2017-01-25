@@ -28,6 +28,7 @@ function CreateWebsite ($WebsiteName,$PhysicalPath){
 
     else{
          New-Website -Name $WebsiteName -PhysicalPath $PhysicalPath -Verbose
+         Write-Output "La Pagina Web no existia y ha sido creada"
     }
 }
 
