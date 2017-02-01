@@ -28,7 +28,7 @@ function DeleteApplicationPool ($AppPoolName){
 function DeletePhysicalPath ($PhysicalPath){
  
     If(Test-Path -Path $PhysicalPath){
-        Remove-Item -path $PhysicalPath -verbose
+        Remove-Item -path $PhysicalPath -verbose #Asegurate que esta linea borre los items SIEMPRE sin preguntarme si estoy seguro.
         Write-Output "El directorio [$PhysicalPath] ha sido eliminado"
     }
     
